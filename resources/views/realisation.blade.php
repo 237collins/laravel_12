@@ -44,7 +44,7 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <h3>Buna Boy</h3>
+          <h3>Demo 1</h3>
           <p>Description du projet</p>
         </div>
 
@@ -61,7 +61,7 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <h3>Buna Boy</h3>
+          <h3>Demo 2</h3>
           <p>Description du projet</p>
         </div>
       </div>
@@ -72,24 +72,24 @@
 
       <div class="grid image-grid">
         <div class="item">
-          <img src="assets/images/Roll_Up_Mockup_1.jpg" alt="UI Design 1" />
-          <h3>UI Dashboard</h3>
-          <p>Interface épurée pour application mobile</p>
+          <img src="assets/images/Roll_Up_Mockup_1.jpg" style="height: 270px" alt="UI Design 1" />
+          <h3>FK MAssages</h3>
+          {{-- <p>Interface épurée pour application mobile</p> --}}
         </div>
         <div class="item">
           <img src="assets/images/La-Belle-AWOUDA.jpg" alt="eCommerce" />
-          <h3>E-commerce</h3>
-          <p>Page produit minimaliste et intuitive</p>
+          <h3>AWOUDA</h3>
+          {{-- <p>Page produit minimaliste et intuitive</p> --}}
         </div>
         <div class="item">
           <img src="assets/images/Les-ateliers-pratiques.jpg" alt="Resto Site" />
-          <h3>Site Restaurant</h3>
-          <p>Design web moderne et responsive</p>
+          <h3>Cabinet Discover</h3>
+          {{-- <p>Design web moderne et responsive</p> --}}
         </div>
         <div class="item">
           <img src="assets/images/Offre 1 FR.jpg" alt="Landing page" />
-          <h3>Landing Beauté</h3>
-          <p>Page d’accueil pour cosmétique naturel</p>
+          <h3>IFP Germania</h3>
+          {{-- <p>Page d’accueil pour cosmétique naturel</p> --}}
         </div>
       </div>
       </section>

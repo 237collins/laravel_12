@@ -27,7 +27,7 @@ body {
     .grid {
       display: grid;
       gap: 30px;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .video-grid {
@@ -39,6 +39,7 @@ body {
     }
 
     .item {
+        
       text-align: center;
     }
 
