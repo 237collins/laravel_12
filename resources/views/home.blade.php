@@ -1,128 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My webpage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-</head>
-<body>
-    <!--
-  This example requires updating your template:
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=heroice-width, initial-scale=1.0" />
+    <title>NOVA-DEV</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/coments.css') }}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet">
 
-  ```
-  <html class="h-full bg-gray-100">
-  <body class="h-full">
-  ```
--->
-<div class="min-h-full">
-    <nav class="bg-gray-800">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
-          <div class="flex items-center">
-            <div class="shrink-0">
-              <!-- <img src="assets/profile.png" alt="Your Company"> -->
-              <img class="size-10 rounded-full" src=" https://www.freepik.com/free-ai-image/cartoon-man-wearing-glasses_126197316.htm#fromView=search&page=1&position=2&uuid=9004a109-7f39-42b4-8268-80890b90cffa&query=technology+cartoon" alt="">
-            </div>
-            <div class="hidden md:block">
-              <div class="ml-10 flex items-baseline space-x-4">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <x-nav-link href="/" : active="request()->is('/')">Home</x-nav-link>
-                <x-nav-link href="/about" : active="request()->is('/about')">About</x-nav-link>
-                <x-nav-link href="/contact" : active="request()->is('/contact')" type="button">Contact</x-nav-link>
-              </div>
-            </div>
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-4 flex items-center md:ml-6">
-              <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">View notifications</span>
-                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                </svg>
-              </button>
-  
-              <!-- Profile dropdown -->
-              <div class="relative ml-3">
-                <div>
-                  <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                    <span class="absolute -inset-1.5"></span>
-                    <span class="sr-only">Open user menu</span>
-                    <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                  </button>
-                </div>
-  
-                 
-               
-              </div>
-            </div>
-          </div>
-          <div class="-mr-2 flex md:hidden">
-            <!-- Mobile menu button -->
-            <button type="button" class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" aria-controls="mobile-menu" aria-expanded="false">
-              <span class="absolute -inset-0.5"></span>
-              <span class="sr-only">Open main menu</span>
-              <!-- Menu open: "hidden", Menu closed: "block" -->
-              <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              <!-- Menu open: "block", Menu closed: "hidden" -->
-              <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">Nova <span>- Dev</span></div>
+
+        <div class="sidebar">
+          <nav class="nav" id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </div>
-      </div>
-  
-      <!-- Mobile menu, show/hide based on menu state. -->
-      <div class="md:hidden" id="mobile-menu">
-        <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-          <!-- Current: "bg-gray-900 text-white ", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <a href="/" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
-          <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-          <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
-    
+
+        <!-- Ancien lien -->
+        <!-- <a class="cta-button" href="#">Let's Collaborate</a> -->
+        <!-- Nouveau lien -->
+        <a
+          class="cta-button"
+          href="https://wa.me/237697627966?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services"
+          target="_blank"
+          class="whatsapp-btn">WhatsApp
+        </a>
+
+        <div class="burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="border-t border-gray-700 pt-4 pb-3">
-          <div class="flex items-center px-5">
-            <div class="shrink-0">
-              <img class="size-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            </div>
-            <div class="ml-3">
-              <div class="text-base/5 font-medium text-white">Collins Momo</div>
-              <div class="text-sm font-medium text-gray-400">collinsmomo05@gmail.com</div>
-            </div>
-            <button type="button" class="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-              <span class="absolute -inset-1.5"></span>
-              <span class="sr-only">View notifications</span>
-              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-              </svg>
-            </button>
-          </div>
-          
-        </div>
-      </div>
-    </nav>
-  
-    <header class="bg-white shadow-sm">
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{$heading}}</h1>
       </div>
     </header>
-    <main>
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <!-- Your content -->
-         {{ $slot }}
+    <!-- Menu Burger -->
+    <div class="burger2" id="burger-menu2">&#9776;</div>
+
+    <!-- Sidebar -->
+    <div class="sidebar1" id="sidebar1">
+      <nav class="nav" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Témoignage</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div>
+        <h1>Hello, je suis <span>Collins</span></h1>
 
       </div>
-    </main>
-  </div>
-  
-</body>
-</html>
 
- 
+      <div class="container" id="home">
+        <div class="hero-image">
+          <div class="profil-image-placeholder">
+            <img style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"
+              src="assets/images/pp.jpg" alt="proto de profil">
+          </div>
+
+        </div>
+        <div class="hero-content">
+
+          <p>
+            Passionné par l'informatique et la technologie.
+            Je suis extrêmement motivé à développer constamment mes compétences,<br>
+            dans un monde où la vitesse d'apprentissage est un atout majeur
+            Je suis confiant dans ma capacité à proposer des idées innovantes
+            et à colaborer avec un équipe dynamique pour la réqlisation des projets d'envergure.
+
+          </p>
+          <a href="pricing/tarif.html" class="hero-button">Collaborons →</a>
+          <p class="clients">
+            Plus de <strong>100+</strong> Clients dans le monde.
+          </p>
+          <div class="client-logos">
+            <div class="circle"><img style="width: 90%; height: 90%; border-radius: 30%; object-fit: scale-down;" src="assets/logos/discover.png" alt="discover"></div>
+            <span class="circle"><img
+                style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"
+                src="assets/logos/consoinvest.png" alt="Consoinvest"></span>
+            <span class="circle"><img style="width: 90%; height: 90%; border-radius: 50%; object-fit: scale-down;"
+              src="assets/logos/Logo .png" alt="FK Massages"></span>
+            <!-- <span class="circle"><img style="width: 100%; height: 100%; object-fit: cover;"
+              src="" alt=""></span> -->
+
+            <div class="side-text">
+
+              <div class="ligne-et-texte">
+                <div class="barre-verticale"></div>
+                <p class="texte">
+                  I am a designer and heroeloper
+                  with a passion for creating
+                  unique visual experiences
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="social-icons">
+          <hr class="barre-verticale-3">
+            <div class="ligne-et-texte-2">
+                <div class="barre-verticale-2"></div>
+                <ul class="horizontal-menu">
+                    <li><a href="#"><img src="assets/icons/insta.png" alt=""></a></li>
+                    <li><a href="#"><img  src="assets/icons/x.png" alt=""></a></li>
+                    <li> <a href="#"><img  src="assets/icons/linkedin.png" alt=""></a></li>
+                    <li> <a href="#"><img  src="assets/icons/facebook.png" alt=""></a></li>
+                 </ul>
+                 
+            </div>
+            <hr class="barre-verticale-3">
+        </div>
+      </section>
+
+      <!-- Section About -->
+      <section id="about">
+        <div class="about-container">
+          <div class="about-text">
+            <h2><span>Who</span> We Are</h2>
+            <p class="about-p">
+              Designing the future with creativity and purpose, we are
+              dedicated.
+            </p>
+            <p>
+              At Alex Morgan, we believe that design is more than just
+              aesthetics—
+              it's a powerful tool to communicate, connect, and inspire. With a
+              passion for innovation and a commitment to excellence, we
+              transform
+              ideas into impactful designs that tell stories and leave lasting
+              impressions.
+            </p>
+            <ul class="about-services">
+              <li>
+                <span class="checkmark">✔</span>
+                <div>
+                  <strong>Custom Branding</strong>
+                  <p>
+                    Crafting unique identities that resonate with your audience.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="checkmark">✔</span>
+                <div>
+                  <strong>Web Design</strong>
+                  <p>
+                    Building responsive and visually stunning websites tailored
+                    to
+                    your goals.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="checkmark">✔</span>
+                <div>
+                  <strong>UI/UX Solutions</strong>
+                  <p>
+                    Creating seamless, user-friendly experiences that enhance
+                    engagement.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <div class="image-placeholder">
+              <img style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px"
+                src="assets/images/who.jpg" alt>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--  -->
+
+      <!-- portfolio -->
+      <section id="portfolio">
+
+        <div class="portfolio-container">
+          <div class="section-header">
+            <h2><span>Our Work</span> Speaks for Itself</h2>
+            <p>
+              Designed a sleek, responsive website for a tech startup to enhance
+              their online presence and improve user experience.
+            </p>
+          </div>
+          <div class="portfolio-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+              <div class="image-placeholder"></div>
+              <h3>Modern Business Website Design</h3>
+              <p>
+                Designed a sleek, responsive website for a tech startup to
+                enhance
+                their online presence and improve user experience.
+              </p>
+              <ul>
+                <li>✔ Custom UI/UX tailored for tech-savvy audiences.</li>
+                <li>
+                  ✔ Integrated responsive design for seamless mobile experience.
+                </li>
+                <li>✔ Achieved a 50% increase in website traffic
+                  post-launch.</li>
+              </ul>
+              <a href="#" class="btn">View Project</a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" id="project-2">
+              <div class="image-placeholder"></div>
+              <h3>Brand Identity for Urban Coffee House</h3>
+              <p>
+                Created a complete brand identity, including logo, typography,
+                and
+                packaging design for a trendy coffee house.
+              </p>
+              <ul>
+                <li>✔ Minimalist logo with a bold, urban aesthetic.</li>
+                <li>✔ Custom typography designed for versatile
+                  applications.</li>
+                <li>
+                  ✔ Consistent branding across menus, signage, and merchandise.
+                </li>
+              </ul>
+              <a href="#" class="btn">View Project</a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+              <div class="image-placeholder"></div>
+              <h3>E-commerce UI Design for Fashion Store</h3>
+              <p>
+                heroeloped an engaging and visually stunning UI for a fashion
+                e-commerce platform to drive online sales.
+              </p>
+              <ul>
+                <li>✔ User-centric design focused on ease of navigation.</li>
+                <li>✔ Integrated high-quality visuals to showcase products.</li>
+                <li>✔ Boosted sales conversion rate by 35%.</li>
+              </ul>
+              <a href="#" class="btn">View Project</a>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" id="project-2">
+              <div class="image-placeholder"></div>
+              <h3>Social Media Campaign for Beauty Brand</h3>
+              <p>
+                Designed an engaging social media campaign for a beauty brand,
+                featuring stunning visuals and animations.
+              </p>
+              <ul>
+                <li>
+                  ✔ Created visually cohesive posts for Instagram and Facebook.
+                </li>
+                <li>✔ Designed short animations to boost engagement.</li>
+                <li>✔ Achieved a 60% increase in social media following.</li>
+              </ul>
+              <a href="#" class="btn">View Project</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!--  -->
+
+    <!-- services -->
+    <section id="services">
+      <div class="services-container">
+        <div class="section-header">
+          <h2><span>What</span> We Do</h2>
+          <p>
+            From branding to web design, we offer a full suite of services that
+            help businesses thrive in the digital world.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="icon">
+              <img src="assets/icons/branding.png" alt="Branding Icon" />
+            </div>
+            <h3>Branding</h3>
+            <p>Building strong identities for businesses to stand out.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <img src="assets/icons/ui-ux.png" alt="UI/UX Icon" />
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>Creating user-friendly interfaces.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <img src="assets/icons/web-design.png" alt="Web Design Icon" />
+            </div>
+            <h3>Web Design</h3>
+            <p>Designing responsive, visually appealing websites.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <img src="assets/icons/print-design.png"
+                alt="Print Design Icon" />
+            </div>
+            <h3>Print Design</h3>s
+            <p>Designing eye-catching materials.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--  -->
+    <!-- Comments section -->
+
+    <section class="testimonials-section" id="testimonials">
+      <div class="title">
+        <h2 class="section-title"><span>What Our</span> Clients Say</h2>
+        <p class="section-subtitle">Hear from the people who have experienced
+          the transformative power of our design solutions.</p>
+      </div>
+      <div class="testimonial-wrapper">
+        <div class="comment-container">
+
+          <div class="slide">
+            <div class="testimonial-card">
+            
+            <!-- Photo du client -->
+            <img src="assets/images/pp.jpg"
+              alt="Anna Harper" class="client-photo">
+            
+
+            <div class="infos">
+              <!-- Témoignage -->
+              <p class="testimonial-text">
+                Working with Alex Morgan was an absolute game-changer for our
+                business.
+                The designs not only captured our vision perfectly but also
+                elevated
+                our brand's image. Clients have been raving about the new look!
+              </p>
+
+              <!-- Info client -->
+              <div class="client-info">
+                <h3 class="client-name">Anna Harper</h3>
+                <!-- <p class="client-position">CEO, Harper Designs</p> -->
+                <div class="client-rating">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+
+             
+
+          </div>
+          <!--  Client 2 -->
+          </div>
+          
+          <!-- 2 -->
+
+         
+        </div>
+          
+        <div class="pagination">
+            <button class="prev">&#8592;</button> <!-- Flèche gauche -->
+            <button class="next">&#8594;</button> <!-- Flèche droite -->
+        </div>
+
+       
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="contact-container">
+        <div class="contact-header">
+        <h2> <span> Get in </span>Touch</h2>
+        <p>
+          Have a project in mind? Let's work together to bring your ideas to
+          life.
+        </p>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-group  ">
+          <label for="name"></label>
+          <input type="text" id="name" class="form-control"
+            placeholder="Enter your full name" />
+        </div>
+
+        <div class="form-group ">
+          <label for="email"></label>
+          <input type="email" id="email" class="form-control"
+            placeholder="Enter your email address" />
+        </div>
+
+        <div class="form-group ">
+          <label for="subject"></label>
+          <input type="text" id="subject" class="form-control"
+            placeholder="Enter your subject message" />
+        </div>
+
+        <div class="form-group ">
+          <label for="message"></label>
+          <textarea id="message" class="form-control"
+            placeholder="Enter your Message"></textarea>
+        </div>
+
+        <div class="form-group ">
+          <button type="submit" class="btn-submit">Send Message</button>
+        </div>
+      </form>
+      </div>
+    </section>
+    <!--  -->
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo"> Momo <span>Collins</span></div>
+          <p class="footer-description">
+            The ultimate design solutions platform built for creativity,
+            reliability, and performance. Trusted by businesses and individuals
+            worldwide with expert support available 24/7.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Branding</a></li>
+            <li><a href="#">UI/UX Design</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Solutions</h3>
+          <ul class="footer-links">
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Design Process</a></li>
+            <li><a href="#">Pricing Options</a></li>
+            <li><a href="#">Success Stories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Design Tools</a></li>
+            <li><a href="#">Help Center</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2025 Momo Collins. All rights reserved.</div>
+    </footer>
+    <!--  -->
+    <!-- Nouvau code -->
+    <script>
+  const burger2 = document.getElementById('burger-menu2');
+  const sidebar = document.getElementById('sidebar1');
+
+  burger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+</script>
+
+    <!--  -->
+    <script>
+      const burger = document.getElementById("burger");
+      const navMenu = document.getElementById("nav-menu");
+
+      burger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+    </script>
+
+  </body>
+</html>
