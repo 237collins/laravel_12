@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=heroice-width, initial-scale=1.0" />
     <title>NOVA-DEV</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/coments.css') }}" />
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+   <link rel="stylesheet" href="{{ asset('css/coments.css') }}" />
+    {{-- <link rel="stylesheet" href="{{ asset('css/tarif.css') }}" /> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/realisation.css') }}" /> --}}
+    
+    {{-- <link rel="stylesheet" href="{{ asset('css/embed.css') }}" /> --}}
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet">
@@ -50,7 +54,7 @@
     <!-- Sidebar -->
     <div class="sidebar1" id="sidebar1">
       <nav class="nav" id="nav-menu">
-        <a href="index.html">Home</a>
+        <a href="{{ route('home') }}">Home</a>
         <a href="#about">About</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#services">Services</a>
@@ -69,7 +73,7 @@
         <div class="hero-image">
           <div class="profil-image-placeholder">
             <img style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"
-              src="assets/images/pp.jpg" alt="proto de profil">
+              src="{{ url('assets/images/pp.jpg') }}" alt="proto de profil">
           </div>
 
         </div>
@@ -83,7 +87,7 @@
             et à colaborer avec un équipe dynamique pour la réqlisation des projets d'envergure.
 
           </p>
-          <a href="pricing/tarif.html" class="hero-button">Collaborons →</a>
+          <a href="{{ route('tarif') }}" class="hero-button">Collaborons →</a>
           <p class="clients">
             Plus de <strong>100+</strong> Clients dans le monde.
           </p>
@@ -181,7 +185,7 @@
           <div class="about-image">
             <div class="image-placeholder">
               <img style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px"
-                src="assets/images/who.jpg" alt>
+                src="{{ url('assets/images/who.jpg') }}" alt>
             </div>
           </div>
         </div>
