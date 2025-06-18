@@ -19,6 +19,23 @@
           <a href="{{ route('home') }}">Home</a>
           <a href="{{ route('tarif') }}">tarifs</a>
            <a href="{{ route('embed') }}">Link YT changer</a>
+
+           {{-- Condition --}}
+           {{-- @auth
+    <a href="{{ route('embed') }}">Link YT changer</a>
+@endauth --}}
+{{--            
+           @auth
+    <a href="{{ route('dashboard') }}">Dashboard</a>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit">Se déconnecter</button>
+    </form>
+@else
+    <a href="{{ route('login') }}">Se connecter</a>
+    <a href="{{ route('register') }}">S'inscrire</a>
+@endauth --}}
+
         </nav>
 
         <a

@@ -10,6 +10,28 @@
             <a href="#services">Services</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
+             <div>
+        <style>
+  .btn-dashboard {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #1d4ed8;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .btn-dashboard:hover {
+    background-color: #2563eb;
+  }
+</style>
+ @auth
+    <a href="{{ route('dashboard') }}" class="btn-dashboard">Mon Espace</a>
+@endauth
+    </div>
           </nav>
         </div>
 

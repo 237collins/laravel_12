@@ -1,6 +1,5 @@
 
 @section('content2')
-<!-- Ton du formulaire -->
 <section id="contact">
   <div class="contact-container">
     <div class="contact-header">
@@ -10,11 +9,10 @@
       </p>
     </div>
 
-    @if(session('success'))
-      <div style="color: green;">{{ session('success') }}</div>
-    @endif
+    {{-- Message de succès --}}
+    <div id="form-message" style="display: none; color: green; margin-bottom: 10px;"></div>
 
-    <form class="contact-form" method="POST" action="{{ route('contact.send') }}">
+    <form id="contact-form" class="contact-form" method="POST" action="{{ route('contact.send') }}">
       @csrf
       <div class="form-group">
         <input type="text" id="name" name="name" class="form-control"
@@ -35,12 +33,181 @@
         <textarea id="message" name="message" class="form-control"
           placeholder="Enter your Message" required></textarea>
       </div>
-
-      <div class="form-group">
+      {{-- Ancien bouton Send Statique --}}
+      {{-- <div class="form-group">
         <button type="submit" class="btn-submit">Send Message</button>
-      </div>
+      </div> --}}
+      
+      {{-- Nouveau bouton Send avec Barre de chargement --}}
+      {{-- <div class="form-group">
+  <button type="submit" id="submit-btn" class="btn-submit">
+    <span class="btn-text">Send Message</span>
+    <span class="btn-loading" style="display: none;">Envoi en cours...</span>
+  </button>
+</div> --}}
+
+{{-- Nouveau bouton 2.0 Send avec Barre de chargement --}}
+<div class="form-group" >
+  {{-- CSS pour le spinner --}}
+  <style>
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  #form-message {
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  #form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  #form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  #form-message {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+#form-message.fade-out {
+  opacity: 0;
+}
+
+</style>
+
+  <button type="submit" id="submit-btn" class="btn-submit">
+    <span class="btn-text">Send Message</span>
+    <span class="btn-loading" style="display: none;">
+      <span class="spinner"></span> Envoi en cours...
+    </span>
+  </button>
+</div>
+
+
+  <div id="form-message" style="display:none; margin-bottom: 15px;"></div>
+
     </form>
   </div>
 </section>
 
+{{-- SCRIPT AJAX --}}
+{{-- AJAX  2.0 --}}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    const submitButton = form.querySelector('.btn-submit');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      // Désactiver le bouton et montrer le spinner
+      submitButton.disabled = true;
+      const originalText = submitButton.innerHTML;
+      submitButton.innerHTML = `<span class="spinner"></span> Envoi en cours...`;
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+        },
+        body: formData
+      })
+      .then(response => {
+        if (!response.ok) throw new Error("Erreur lors de l'envoi du formulaire.");
+        return response.text();
+      })
+      .then(() => {
+        // Restaurer le bouton
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+
+        // Message de succès
+        const messageBox = document.createElement('div');
+        messageBox.id = 'form-message';
+        messageBox.textContent = 'Message envoyé avec succès !';
+        messageBox.style.color = 'green';
+        messageBox.style.margin = '10px 0';
+        form.insertAdjacentElement('beforebegin', messageBox);
+
+        // Réinitialiser le formulaire
+        form.reset();
+
+        // Disparition du message après 5 secondes
+        setTimeout(() => {
+          messageBox.classList.add('fade-out');
+          setTimeout(() => messageBox.remove(), 500);
+        }, 5000);
+      })
+      .catch(error => {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+        alert(error.message);
+      });
+    });
+  });
+</script>
+
+
+
+{{-- Ajax 1.0 --}}
+{{-- <script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const url = form.action;
+    const formData = new FormData(form);
+    const messageBox = document.getElementById('form-message');
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': form.querySelector('[name=_token]').value,
+        'Accept': 'application/json',
+      },
+      body: formData,
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Erreur réseau');
+      return response.json();
+    })
+    .then(data => {
+      messageBox.innerText = data.message;
+      messageBox.style.display = 'block';
+
+      // Vider le formulaire
+      form.reset();
+
+      // Masquer le message après 5 secondes
+      setTimeout(() => {
+        messageBox.style.display = 'none';
+      }, 5000);
+    })
+    .catch(error => {
+      messageBox.innerText = "Une erreur s'est produite. Veuillez réessayer.";
+      messageBox.style.color = 'red';
+      messageBox.style.display = 'block';
+    });
+  });
+</script> --}}
 @endsection
