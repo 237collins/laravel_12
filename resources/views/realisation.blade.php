@@ -14,7 +14,6 @@
 
         <nav class="nav" id="nav-menu">
           <a href="{{ route('home') }}">Home</a>
-          {{-- <a href="realisation.html">Réalisations</a> --}}
           <a href="{{ route('tarif') }}">tarifs</a>
            <a href="{{ route('embed') }}">Link YT changer</a>
         </nav>
@@ -72,7 +71,7 @@
 
       <div class="grid image-grid">
         <div class="item">
-          <img src="assets/images/Roll_Up_Mockup_1.jpg" style="height: 270px" alt="UI Design 1" />
+          <img src="assets/images/Roll_Up_Mockup_2.jpg" alt="UI Design 1" />
           <h3>FK MAssages</h3>
           {{-- <p>Interface épurée pour application mobile</p> --}}
         </div>

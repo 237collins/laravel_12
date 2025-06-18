@@ -24,3 +24,10 @@ Route::get('/realisation', function () {
 Route::get('/embed', function () {
     return view('embed');
 })->name('embed');
+
+// pour l'import des images
+use App\Http\Controllers\ImageController;
+
+Route::post('/upload-image', [ImageController::class,
+'store'])->name('upload.image');
+
