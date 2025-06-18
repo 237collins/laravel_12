@@ -80,60 +80,84 @@ body {
   font-size: 15px;
 }
 
-/* Burger icon */
-.burger2 {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  font-size: 30px;
-  color: white;
-  z-index: 1100;
-  cursor: pointer;
-}
-
-/* Sidebar */
+/* Style de la Sidebar leterale */
 .sidebar1 {
   position: fixed;
   top: 50%;
   left: 0;
-  /* margin-right: 50px; */
-  /* transform: translateY(-50%); */
-  background-color: rgba(0, 0, 0, 0.85);
-  padding: 1rem 0;
-  border-radius: 0 10px 10px 0;
+  transform: translateY(-50%);
+  width: 60px;
+  height: auto;
+  background-color: #1e1e2f;
+  transition: width 0.3s;
   z-index: 1000;
-  transition: left 0.3s ease;
+  border-radius: 0 10px 10px 0;
+  overflow: hidden;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* #sidebar1 :hover{
-  transform: translateX(100px);
-} */
+.sidebar1:hover {
+  width: 200px;
+}
 
 .sidebar1 .nav {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  align-items: start;
+  padding: 10px 0;
 }
 
 .sidebar1 .nav a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar1 .nav :hover {
-  color: #ff023e;
-  transform: translateX(5px);
+.sidebar1 .nav a:hover {
+  background-color: #33335b;
+  color: #00bcd4;
 }
+
+.sidebar1 .nav i {
+  margin-right: 12px;
+  font-size: 18px;
+  min-width: 24px;
+}
+
+.sidebar1 .nav span {
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar1:hover .nav span {
+  opacity: 1;
+}
+
+/* Optionnel : masquer complètement le texte en mode réduit */
+.sidebar1:not(:hover) .nav span {
+  display: none;
+}
+
+/* Pour le burger si tu veux le garder */
+.burger2 {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
   .burger {
-    display: block;
-  }
-  .burger2 {
     display: block;
   }
 

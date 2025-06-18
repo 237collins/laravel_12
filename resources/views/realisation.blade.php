@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mes Réalisations</title>
-    <link rel="stylesheet" href="{{ asset('css/realisation.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="logo">NOVA <span>DEV</span></div>
 
-        <nav class="nav" id="nav-menu">
-          <a href="{{ route('home') }}">Home</a>
-          <a href="{{ route('tarif') }}">tarifs</a>
-           <a href="{{ route('embed') }}">Link YT changer</a>
-        </nav>
-
-        <a class="cta-button" href="#">Let's Collaborate</a>
-
-        <div class="burger" id="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </header>
-
+   @extends('layout2')
+   @section('content3')
     <section class="realisation">
       <h2><span class="highlight">Mes</span> Vidéos</h2>
 
@@ -94,69 +67,4 @@
       </section>
 
     </section>
-
-    <!-- footer -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-about">
-          <div class="footer-logo">Alex Morgan</div>
-          <p class="footer-description">
-            The ultimate design solutions platform built for creativity,
-            reliability, and performance. Trusted by businesses and individuals
-            worldwide with expert support available 24/7.
-          </p>
-        </div>
-
-        <div class="footer-column">
-          <h3>Services</h3>
-          <ul class="footer-links">
-            <li><a href="#">Graphic Design</a></li>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Branding</a></li>
-            <li><a href="#">UI/UX Design</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>Solutions</h3>
-          <ul class="footer-links">
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Design Process</a></li>
-            <li><a href="#">Pricing Options</a></li>
-            <li><a href="#">Success Stories</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>Resources</h3>
-          <ul class="footer-links">
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Tutorials</a></li>
-            <li><a href="#">Design Tools</a></li>
-            <li><a href="#">Help Center</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <ul class="footer-links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">© 2025 Alex Morgan. All rights reserved.</div>
-    </footer>
-    <!--  -->
-    <!-- Nouvau code -->
-    <script>
-      const burger = document.getElementById("burger");
-      const navMenu = document.getElementById("nav-menu");
-
-      burger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
-    </script>
-  </body>
-</html>
+   @endsection

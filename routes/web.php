@@ -31,3 +31,12 @@ use App\Http\Controllers\ImageController;
 Route::post('/upload-image', [ImageController::class,
 'store'])->name('upload.image');
 
+# 
+use App\Http\Controllers\ContactController;
+
+Route::get('/sections/contact', function () {
+    return view('sections.contact');
+})->name('contact.form');
+
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
