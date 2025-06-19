@@ -1,70 +1,73 @@
+@extends('layout2')
+@section('content3')
 
-   @extends('layout2')
-   @section('content3')
-    <section class="realisation">
-      <h2><span class="highlight">Mes</span> Vidéos</h2>
+<section class="realisation">
+  <h2><span class="highlight">Mes</span> Vidéos</h2>
 
-      <div class="grid video-grid">
-         <div class="item">
-          <iframe
-            {{-- width="100%" --}}
-            height="280"
-            style="object-fit: cover"
-            src="https://www.youtube.com/embed/Ml0ukqpT4OQ"
-            title="Buna Boy"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-          <h3>Demo 1</h3>
-          <p>Description du projet</p>
-        </div>
+  
+  {{--  Pour l'affichage des fichiers (Manque la logique) --}}
+  {{-- @auth
+  <div style="margin-bottom: 1rem">
+    <a href="?type=video" class="btn">Afficher les vidéos</a>
+    <a href="?type=image" class="btn">Afficher les images</a>
+    <a href="?type=all" class="btn">Tout afficher</a>
+  </div>
+  @endauth --}}
 
-        {{-- Video 2 --}}
+  <div class="grid video-grid">
+    @forelse ($videos->take(3) as $video)
+      <div class="item">
+        <iframe height="280" width="100%" style="object-fit: cover"
+          src="{{ $video->url }}" title="{{ $video->title }}"
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <h3>{{ $video->title }}</h3>
+        <p>{{ $video->description }}</p>
 
-        <div class="item">
-          <iframe
-            {{-- width="100%" --}}
-            height="280"
-            style="object-fit: cover"
-            src="https://www.youtube.com/embed/fT1h6b77jRY"
-            title="Buna Boy"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-          <h3>Demo 2</h3>
-          <p>Description du projet</p>
-        </div>
+        @auth
+          <div>
+            <form action="{{ route('realisation.destroy', $video->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette Vidéo ?');">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">Supprimer</button>
+        </form>
+
+        <a href="{{ route('realisation.edit', $video->id) }}" class="btn btn-edit">Modifier</a>
+      
+          </div>
+        @endauth
       </div>
-       
+    @empty
+      <p>Aucune vidéo pour le moment.</p>
+    @endforelse
+  </div>
 
-      <section>
-        <h2><span class="highlight">Mes</span> Designs</h2>
+  <section>
+    <h2><span class="highlight">Mes</span> Designs</h2>
 
-      <div class="grid image-grid">
+    <div class="grid image-grid">
+      @forelse ($images->take(4) as $image)
         <div class="item">
-          <img src="assets/images/Roll_Up_Mockup_2.jpg" alt="UI Design 1" />
-          <h3>FK MAssages</h3>
-          {{-- <p>Interface épurée pour application mobile</p> --}}
-        </div>
-        <div class="item">
-          <img src="assets/images/La-Belle-AWOUDA.jpg" alt="eCommerce" />
-          <h3>AWOUDA</h3>
-          {{-- <p>Page produit minimaliste et intuitive</p> --}}
-        </div>
-        <div class="item">
-          <img src="assets/images/Les-ateliers-pratiques.jpg" alt="Resto Site" />
-          <h3>Cabinet Discover</h3>
-          {{-- <p>Design web moderne et responsive</p> --}}
-        </div>
-        <div class="item">
-          <img src="assets/images/Offre 1 FR.jpg" alt="Landing page" />
-          <h3>IFP Germania</h3>
-          {{-- <p>Page d’accueil pour cosmétique naturel</p> --}}
-        </div>
-      </div>
-      </section>
+          <img src="{{ asset('storage/' . $image->url) }}" alt="{{ $image->title }}" />
+          <h3>{{ $image->title }}</h3>
+          <p>{{ $image->description }}</p>
 
-    </section>
-   @endsection
+          @auth
+          <form action="{{ route('realisation.destroy', $image->id) }}" method="POST" onsubmit="return confirm('Voulez-vous vraiment supprimer cette Image ?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+          </form>
+
+          <a href="{{ route('realisation.edit', $image->id) }}" class="btn btn-edit">Modifier</a>
+          @endauth
+        </div>
+      @empty
+        <p>Aucune image pour le moment.</p>
+      @endforelse
+    </div>
+  </section>
+</section>
+
+@endsection

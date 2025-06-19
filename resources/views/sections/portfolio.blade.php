@@ -12,7 +12,9 @@
           <div class="portfolio-grid">
             <!-- Project 1 -->
             <div class="project-card">
-              <div class="image-placeholder"></div>
+              <div class="image-placeholder"> 
+
+</div>
               <h3>Modern Business Website Design</h3>
               <p>
                 Designed a sleek, responsive website for a tech startup to
@@ -32,7 +34,9 @@
 
             <!-- Project 2 -->
             <div class="project-card" id="project-2">
-              <div class="image-placeholder"></div>
+              <div class="image-placeholder"> 
+<img src="https://drive.google.com/thumbnail?id=1XGj1o9tQ3y7a6VQDZ92z-jmgfKwR9O0b&sz" alt="Description de l'image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px">
+              </div>
               <h3>Brand Identity for Urban Coffee House</h3>
               <p>
                 Created a complete brand identity, including logo, typography,

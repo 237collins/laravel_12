@@ -129,9 +129,173 @@
             </script>
             </div>
 
-            {{-- Formulaire de Upload --}}
+            {{-- Nouveau code lié à la table réalisation  --}}
+            <div class="blocn">
+  <h2>Formulaire Vidéo</h2>
 
-            <div class="bloc2">
+  <!-- Message de succès affiché ici -->
+  <div id="success-message-video" style="display: none; color: green; font-weight: bold; margin-bottom: 10px;"></div>
+
+  <form id="form1" method="POST" action="{{ route('realisation.store') }}">
+    @csrf
+    <input type="hidden" name="type" value="video">
+
+    <div class="form-group">
+      <label for="lien">Lien YouTube</label>
+      <input type="text" id="lien" name="url" required />
+    </div>
+
+    <div class="form-group">
+      <label for="titre1">Titre (optionnel)</label>
+      <input type="text" id="titre1" name="title" />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description (optionnel)</label>
+      <textarea id="description" name="description"></textarea>
+    </div>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</div>
+
+
+<div class="blocn1">
+  <h2>Formulaire Image</h2>
+
+  <!-- Message de succès au-dessus -->
+  <div id="success-message-image" style="display: none; color: green; font-weight: bold; margin-bottom: 10px;"></div>
+
+  <form id="form2" method="POST" action="{{ route('realisation.store') }}" enctype="multipart/form-data">
+    @csrf
+    <input type="hidden" name="type" value="image">
+
+    <div class="form-group">
+      <label for="dropzone">Image</label>
+      <div class="dropzone" id="dropzone">
+        Cliquez ou déposez une image ici
+      </div>
+      <input type="file" id="imageInput" name="image_file" accept="image/*" style="display: none;" required />
+    </div>
+
+    <div class="form-group">
+      <label for="titre2">Titre (optionnel)</label>
+      <input type="text" id="titre2" name="title" />
+    </div>
+
+    <div class="form-group">
+      <label for="desc-image">Description (optionnel)</label>
+      <textarea id="desc-image" name="description"></textarea>
+    </div>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</div>
+
+{{-- AJAX 1--}}
+<script>
+  document.getElementById('form1').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+      },
+      body: formData
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        showVideoMessage("Vidéo ajoutée avec succès !");
+      }
+    }).catch(() => {
+      showVideoMessage("Erreur lors de l’envoi.", true);
+    });
+  });
+
+  function showVideoMessage(msg, isError = false) {
+    const div = document.getElementById('success-message-video');
+    div.style.color = isError ? 'red' : 'green';
+    div.textContent = msg;
+    div.style.display = 'block';
+
+    setTimeout(() => {
+      div.style.display = 'none';
+      if (!isError) location.reload();
+    }, 2000);
+  }
+</script>
+{{-- Fin AJAX 1 --}}
+
+{{-- AJAX 2 --}}
+<script>
+  // DROPZONE pour image
+  const dropzone = document.getElementById('dropzone');
+  const imageInput = document.getElementById('imageInput');
+
+  dropzone.addEventListener('click', () => imageInput.click());
+  dropzone.addEventListener('dragover', e => {
+    e.preventDefault();
+    dropzone.style.background = '#f0f0f0';
+  });
+
+  dropzone.addEventListener('dragleave', () => {
+    dropzone.style.background = '';
+  });
+
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropzone.style.background = '';
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) {
+      imageInput.files = e.dataTransfer.files;
+    }
+  });
+
+  // AJAX formulaire image
+  document.getElementById('form2').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+      },
+      body: formData
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        showImageMessage("Image ajoutée avec succès !");
+      }
+    }).catch(() => {
+      showImageMessage("Erreur lors de l'envoi.", true);
+    });
+  });
+
+  // Affichage message de succès/erreur au-dessus du formulaire
+  function showImageMessage(msg, isError = false) {
+    const div = document.getElementById('success-message-image');
+    div.style.color = isError ? 'red' : 'green';
+    div.textContent = msg;
+    div.style.display = 'block';
+    setTimeout(() => {
+      div.style.display = 'none';
+      if (!isError) location.reload();
+    }, 2000);
+  }
+</script>
+
+
+{{-- Fin AJXA 2 --}}
+
+            {{-- Ancien code fo --}}
+            {{-- Formulaire de Upload --}}
+            {{-- <div class="bloc2">
                 
                     <div class="blocn">
                       <h2>Importations</h2>
@@ -188,7 +352,7 @@
                         </div>
                         <button type="submit">Envoyer</button>
                     </form>
-                   </div>
+                   </div> --}}
                 
 
                 <script>

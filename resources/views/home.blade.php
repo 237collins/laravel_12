@@ -7,7 +7,7 @@
 
 <section class="hero">
   <div>
-    <h1>Hello, je suis <span>Collins</span></h1>
+    <h1>Bienvenue <span> sur mon site</span></h1>
   </div>
 
   <div class="container" id="home">

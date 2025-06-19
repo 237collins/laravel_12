@@ -18,7 +18,8 @@
         <nav class="nav" id="nav-menu">
           <a href="{{ route('home') }}">Home</a>
           <a href="{{ route('tarif') }}">tarifs</a>
-           <a href="{{ route('embed') }}">Link YT changer</a>
+          <a href="{{ route('projet_dev') }}">Dev Projects</a>
+           <a href="{{ route('embed') }}">Link YT changer</a> 
 
            {{-- Condition --}}
            {{-- @auth

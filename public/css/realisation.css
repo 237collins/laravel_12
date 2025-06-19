@@ -38,6 +38,7 @@ body {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
+ 
     .item {
         
       text-align: center;
@@ -60,11 +61,37 @@ body {
       font-size: 14px;
       color: #666;
     }
+/* Apps */
+
+ .apps-cap {
+        
+      text-align: center;
+    }
+
+    .apps-cap img, iframe {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .apps-cap h3 {
+      margin-top: 15px;
+      font-size: 20px;
+      color: #222;
+    }
+
+    .apps-cap p {
+      font-size: 14px;
+      color: #666;
+    }
 
     @media (max-width: 600px) {
-      .item h3 {
+      .item, .h3 .apps-cap {
         font-size: 18px;
       }
+     
+
+      
       /* Ajoout */
 #nav-menu {
   display: none;

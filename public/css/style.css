@@ -79,6 +79,33 @@ body {
   color: #111;
   font-size: 15px;
 }
+/* Style p */
+.dev {
+    /* Vos styles de base pour .dev */
+    background-color: #f0f0f0;
+    color: #000;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: all 0.3s ease; /* Pour une transition douce */
+    cursor: pointer;
+}
+
+
+.dev:hover {
+    background-color: #ff023e;
+    border-color: #999;
+    color: #fff;
+}
+
+
+.dev:active, 
+.dev:focus {  /* Pour l'état focus (utile pour l'accessibilité si c'est un élément interactif) */
+    background-color: #f66f8f; /* Couleur d'arrière-plan bleue pour l'état actif */
+    color: #fff;              /* Texte blanc */
+    border-color: #333;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Ombre légère */
+}
 
 /* Style de la Sidebar leterale */
 .sidebar1 {

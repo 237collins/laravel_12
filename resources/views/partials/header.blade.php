@@ -8,6 +8,7 @@
             <a href="#about">About</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#services">Services</a>
+            <a href="{{ route('projet_dev') }}" class="dev">Dev Projects</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
              <div>
